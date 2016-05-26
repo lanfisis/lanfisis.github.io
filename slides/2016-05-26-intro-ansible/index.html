@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+        <meta charset="utf-8">
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+            @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+            @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+            body { font-family: 'Helvetica Neue'; }
+            h1, h2, h3 {
+                font-family: 'Yanone Kaffeesatz';
+                font-weight: normal;
+                color: #247BA0;
+            }
+            .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+            .remark-slide-content {
+                background-size: cover;
+            }
+
+            .remark-inline-code {
+                border: 1px black solid;
+                background-color: #444444;
+                color: white;
+                padding-left: 5px;
+                padding-right: 5px;
+                margin-left: 3px;
+                margin-right: 3px;
+            }
+
+            em {
+                color: #70C1B3;
+                font-weight:bold;
+                font-size: 20px;
+                font-family: 'Yanone Kaffeesatz';
+            }
+            .big,.minibig {
+                color: #FF1654;
+            }
+            .big {
+                font-size: 40px;
+            }
+            .logos {
+                margin: 50px 0 80px 0;
+                word-spacing: 50px;
+            }
+            .logos img{
+                width: 100px;
+                height: 100px;
+            }
+            blockquote {
+                background: #eee;
+                border-left: 10px solid #ccc;
+                margin: 1.5em 10px;
+                padding: 0.5em 10px;
+                quotes: "\201C""\201D""\2018""\2019";
+                text-align: justify;
+            }
+
+            .pull-left {
+                float: left;
+                width: 47%;
+            }
+
+            .pull-right {
+                float: right;
+                width: 47%;
+            }
+        </style>
+    </head>
+    <body>
+<textarea id="source">
+
+class: center, middle
+
+# Présentation d'Ansible
+
+![Default-aligned image](images/logo_ansible_home.png)
+<br/><br/>
+(daysolay davance pour lay fote dortograf :-/ )
+---
+
+background-image: url(images/giphy.gif)
+
+# Sommaire
+.big[
+1. Principe du "configuration management" et outils
+2. Présentation d'Ansible
+3. Ecrire son playbook
+4. Ansible chez Smile
+]
+
+---
+
+class: center, middle
+
+# Principe du "configuration management" <br/> et outils
+
+---
+
+class: center, middle
+
+# Avant
+
+Pour configurer son serveur, on s'y connectait en SSH et on s'amusait à grands coups d'`apt-get install` et `vi` pour éditer les fichiers de configuration.
+
+![Programming image](images/programming.gif)
+
+.right[
+*Mais ça comportait quand même certaines limitations...*
+]
+
+---
+
+class: middle
+
+
+.big[
+- Gestion des accès
+- Mises à jour
+- Multi-server
+]
+
+.right[
+*Et aussi quelques soucis de sécurité ...*
+]
+
+---
+class: center, middle
+background-image: url(images/explosion.gif)
+
+.big[
+`rm -RF /`
+]
+
+---
+class: center, middle
+background-image: url(images/explosion2.gif)
+
+.big[
+`DROP DATABASE;`
+]
+
+---
+
+class: center, middle
+
+# Aujourd'hui
+
+Des petits malins, las d'être confrontés à ces problématiques, on eu l'excelente idée de créer des outils pour industrialiser la configuration de machines.
+Ils s'appelent Puppet, Chef, Salt ou encore Ansible
+
+.logos[
+![Programming image](images/logo_puppet.png)
+![Programming image](images/logo_chef.png)
+![Programming image](images/logo_salt.png)
+![Programming image](images/logo_ansible.png)
+]
+
+.right[
+*Découvrons leurs grands principes ...*
+]
+
+---
+
+class: middle
+
+
+.minibig[
+1. Ecriture d'une "recette" dédié à un programme. <br/><em>Ex: recette apache, recette php, recette mysql, recette redis, ...</em>
+2. Création de "rôles" composé de recettes. <br/><em>Ex: rôle front composé des recettes apache & php, role BDD composé des recettes redis & mysql.</em>
+2. Association d'une ou plusieur machine avec un rôle <br/><em>Ex: Les machines `192.168.0.2` et `192.168.0.3` sont de type front.</em>
+3. Lancement de la configuration.
+]
+
+.center[
+![Programming image](images/gordon.gif)
+]
+
+---
+
+class: center, middle
+
+# Présentation d'Ansible
+
+---
+
+class: center, middle
+
+# Ansible
+
+> Ansible est une plate-forme logicielle libre pour la configuration et la gestion des ordinateurs. Elle combine le déploiement de logiciels multi-nœuds, l'exécution des tâches ad-hoc, et la gestion de configuration. Elle gère les différents nœuds par dessus SSH et ne nécessite l'installation d'aucun logiciel supplémentaire à distance sur eux. Les modules fonctionnent grâce à JSON et à la sortie standard et peuvent être écrits dans n'importe quel langage de programmation. Le système utilise YAML pour exprimer des descriptions réutilisables de systèmes1.<br/><br/>
+> La plate-forme a été créée par Michael DeHaan, l'auteur de l'application serveur de provisioning Cobbler et coauteur du cadre de développement Func pour l'administration à distance2.
+><div style="text-align: right; font-style: italic">- Wikipedia (indique un sérieux manque de temps) -</div>
+
+---
+
+class: middle
+.center[
+# Installation
+]
+
+```console
+$ sudo apt-get purge ansible # Make sure previous versions are removed
+$ sudo apt-get install python-crypto python-httplib2 python-jinja2 python-paramiko python-pkg-resources python-yaml python-pip
+$ sudo pip install ansible==2.0.1.0
+```
+.center[
+![Programming image](images/python.gif)
+]
+
+---
+
+class: center, middle
+
+# Ecrire son playbook (et kiffer)
+
+---
+
+# Configuration
+
+.pull-left[
+requirements.yml
+```yml
+- src: git@git.smile.fr:ansible/ansible-basicserver.git
+  scm: git
+- src: git@git.smile.fr:ansible/ansible-apache.git
+  scm: git
+```
+
+playblook.yml
+
+```yml
+- hosts: front
+  roles:
+    - ansible-basicserver
+    - ansible-elasticsearch
+```
+]
+
+.pull-right[
+inventory/front
+```yml
+[front]
+yolo.eqx.intranet
+```
+
+inventory/group_vars/front.yml
+
+```yml
+apache2_vhosts:
+  yolosite:
+    document_root: /var/www/yolosite/src
+    server_name: yolosite.clients.smile.fr
+    template: templates/apache/vhost.staging.conf
+```
+]
+
+---
+
+class: middle
+.center[
+# Lancement
+]
+
+```console
+$ ansible-galaxy install -r requirements.yml -p roles -n -f
+$ ansible-playbook -i pinventory/front playbook.yml
+```
+.center[
+![Programming image](images/launch.gif)
+]
+---
+
+class: center, middle
+
+![Programming image](images/screen.png)
+
+---
+
+class: center, middle
+background-image: url(images/magic.gif)
+
+.big[
+`echo 'Plutôt cool non ?';`
+]
+
+---
+
+class: center, middle
+
+# Ansible chez Smile
+
+---
+
+class: center, middle
+background-image: url(images/collapse.gif)
+
+.big[
+`live-demo --no-bonaldi-effect --crossing-finger`
+]
+
+</textarea>
+        <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+        </script>
+        <script>
+            var slideshow = remark.create({
+                ratio: '16:9',
+                // ratio: '4:3',
+                countIncrementalSlides: false,
+                highlightLines: true,
+                highlightStyle: "dark"
+            });
+        </script>
+    </body>
+</html>
