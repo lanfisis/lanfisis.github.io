@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+        <meta charset="utf-8">
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+            @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+            @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+            body { font-family: 'Helvetica Neue'; }
+            h1, h2, h3 {
+                font-family: 'Yanone Kaffeesatz';
+                font-weight: normal;
+                color: #247BA0;
+            }
+            .bigtitle h1 {
+                font-size: 200px;
+                color: #249E86;
+                text-shadow: rgb(139, 188, 193) 0px 1px 0px, rgb(150, 187, 193) 0px 2px 0px, rgb(150, 190, 193) 0px 3px 0px, rgb(163, 189, 193) 0px 4px 0px, rgb(205, 243, 251) 0px 5px 0px, rgba(0, 0, 0, 0.0980392) 0px 6px 1px, rgba(0, 0, 0, 0.0980392) 0px 0px 5px, rgba(0, 0, 0, 0.298039) 0px 1px 3px, rgba(0, 0, 0, 0.14902) 0px 3px 5px, rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.2) 0px 10px 10px, rgba(0, 0, 0, 0.0980392) 0px 20px 20px;            }
+            .middle {
+                text-align: center;
+            }
+            .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+            .remark-slide-content {
+                background-size: cover;
+            }
+
+            .remark-inline-code {
+                border: 1px black solid;
+                background-color: #444444;
+                color: white;
+                padding-left: 5px;
+                padding-right: 5px;
+                margin-left: 3px;
+                margin-right: 3px;
+            }
+
+            em {
+                color: #70C1B3;
+                font-weight:bold;
+                font-size: 20px;
+                font-family: 'Yanone Kaffeesatz';
+            }
+            .big,.minibig,.mediumbig {
+                color: #FF1654;
+            }
+            .big {
+                font-size: 40px;
+            }
+            .mediumbig {
+                font-size: 30px;
+            }
+            .mediumbig li {
+                margin-bottom: 30px;
+            }
+            .logos {
+                margin: 50px 0 80px 0;
+                word-spacing: 50px;
+            }
+            .logos img{
+                width: 100px;
+                height: 100px;
+            }
+            blockquote {
+                background: #eee;
+                border-left: 10px solid #ccc;
+                margin: 1.5em 10px;
+                padding: 0.5em 10px;
+                quotes: "\201C""\201D""\2018""\2019";
+                text-align: justify;
+            }
+
+            .pull-left {
+                float: left;
+                width: 47%;
+            }
+
+            .pull-right {
+                float: right;
+                width: 47%;
+            }
+
+            .home img {
+                height: 50vh;
+            }
+
+            code {
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+<textarea id="source">
+
+class: center, middle, home
+
+# JAVASCRIPT
+![Logo JS](images/logo_js_home.png)
+<br/><br/>
+Quick view
+---
+
+background-image: url(images/giphy.gif)
+
+# Sommaire
+.big[
+1. Petit historique
+2. Les concepts
+2. Les outils
+
+]---
+
+class: center, middle
+
+# Petit historique
+
+---
+
+class: center, middle
+background-image: url(images/background_90.gif)
+
+.bigtitle[
+# 90's
+]
+
+---
+
+.middle[
+# Naissance et script kidding
+]
+
+.mediumbig[
+* **1995**: Brendan Eich écrit en 10 jours LiveScript, un language de script côté serveur pour Netscape.
+* **1995**: Le language est renommé Javascript pour des raisons commerciales.
+* **1996**: Adopté sous le nom de JScript dans Internet Explorer 3.0 (FTW)
+* **1997**: Le javascript est soumis à l'Ecma International pour standardisation et devient ECMAScript.
+* **1999**: Naissance de XMLHTTP ActiveX par Microsoft, 1er support pour l'Ajax.
+]
+
+---
+
+class: center, middle
+background-image: url(images/background_00.gif)
+
+.bigtitle[
+# 00's
+]
+
+---
+.middle[
+# Apparition des frameworks
+]
+
+.mediumbig[
+* **2005**: Création de la librairie Prototype pour faciliter le support d'Ajax et de Script.aculo.us pour les effets visuels.
+* **2006**: John Resig lance JQuery et la démocratisation du Javascript fait un bon en avant.
+* **2008**: Google, gros utilisateur de JS, lance V8, son propre moteur de script. C'est grâce à ce moteur qu'en ...
+* **2009**: Ryan Dahl présente Node.js, le JS côté serveur, à l'European JSConf ou il reçoit une standing ovation.
+]
+
+---
+
+class: center, middle
+background-image: url(images/background_10.gif)
+
+.bigtitle[
+# 10's
+]
+
+---
+
+.middle[
+# To infinity and beyond !
+]
+
+.mediumbig[
+* **201O**: La 1ere version d'AngularJS, une "extension" du DOM, est pushée sur Github
+* **2011**: Facebook crée React, inspiré par les composants web.
+* **2012**: Sortie de Grunt, un outil d'automatisation.
+* **2014**: Le proof-of-concept Meteor pointe le bout de son nez et permet de partager du code JS côté client et serveur.
+* **2015**: Publication de ECMAScript Edition 6 (ES6): Classes, modules, itérateurs (boucles for-of, générateurs), ...
+]
+
+---
+
+class: center, middle
+
+# Les concepts
+
+---
+
+class: center, middle
+background-image: url(images/background_old.gif)
+
+.bigtitle[
+# Les vieux concepts
+]
+
+---
+
+.middle[
+# Même si tu connais que JQuery
+]
+
+.mediumbig[
+* **Ajax**: Asynchronous JavaScript and XML. Permet l'échange client / serveur par requêtes XMLHTTP en arrière plan.
+]
+```js
+$.ajax({
+  url: "test.html",
+  context: document.body
+}).done(function() {
+  $( this ).addClass( "done" );
+});
+```
+.mediumbig[
+* **Json**: C'est un format de données textuelles dérivé de la notation des objets du langage JavaScript. Il permet de représenter de l’information structurée
+]
+```json
+{"menu": {
+    "id": "file",
+    "value": "File"
+}}
+```
+
+
+---
+
+.mediumbig[
+* **DOM**: Document Object Model. Standart "language agnostic" qui  permet d'accéder ou de mettre à jour le contenu, la structure ou le style de documents HTML et XML.
+* **Callback**: Fonction de rappel. Courantes en JS ou les actions sont asynchrones. C'est une fonction passée à une autre fonction afin d'être appelée post-traitement.
+Attention au Callback Hell.
+]
+```js
+fs.readdir(source, function (err, files) {
+  if (err) {
+    console.log('Error finding files: ' + err)
+  } else {
+    files.forEach(function (filename, fileIndex) {
+      console.log(filename)
+      gm(source + filename).size(function (err, values) {
+        if (err) {
+          console.log('Error identifying file size: ' + err)
+        } else {
+          console.log(filename + ' : ' + values)
+          aspect = (values.width / values.height)
+        }
+      })
+    })
+  }
+})
+```
+
+---
+
+class: center, middle
+background-image: url(images/background_new.gif)
+
+.bigtitle[
+# Les nouveaux concepts
+]
+
+---
+
+.middle[
+# Trust me i'm an engineer
+]
+
+.mediumbig[
+* **Promises**: Pour éviter le Callback Hell.
+On chaine les retours plutôt que de les imbriquer, chaque appel retournant une promesse.
+]
+
+```js
+loadDistantFile('test.txt').then(function (data) {
+    return loadDistantFile('test-2.txt');
+}).then(function (data) {
+    console.info('Le contenu du second fichier a été chargé');
+}).catch(function (err) {
+    console.error(err);
+});
+```
+
+.mediumbig[
+* **Single page app**: C'est une application ou un site full JS qui se synchronise avec un backend via une API. Popularisé par Angular ou Backbone.
+* **Isomorphic app**: C'est une app dont le backend est en JS et dont une partie des composant sont partagés. Popularisé par React ou Meteor.
+
+]
+
+---
+
+.mediumbig[
+* **Two-way data binding**: Quand la vue (Html/DOM) se synchronise automatiquement avec un modèle JS et vice-et-versa. Cf. Angular ou Knockout.
+]
+
+```js
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstname = "John";
+    $scope.lastname = "Doe";
+});
+```
+
+```html
+<div ng-app="myApp" ng-controller="myCtrl">
+    Name: <input ng-model="firstname">
+    <h1>{{firstname}}</h1>
+</div>
+```
+
+.mediumbig[
+* **Observer et RXJs**: Alternative aux promises pour faire des applications en programmation fonctionelle.
+]
+
+```js
+var source = Rx.Observable.range(1, 3)
+    .map(function (x, idx, obs) {
+        return x * x;
+    });
+```
+
+---
+
+.mediumbig[
+* **Immutable**: Autre concept associé à la programmation fonctionnelle. Les objects immutable ne peuvent être modifiés.
+Toute modification entraine la création d'un nouvel objet pour garantir la consistance des donées.
+]
+
+```js
+var map1 = Immutable.Map({a:1, b:2, c:3});
+var map2 = map1.set('b', 50);
+map1.get('b'); // 2
+map2.get('b'); // 50
+```
+
+.mediumbig[
+* **Web component**: Mouvement lié à HTML5 pour une modularité du web.
+Basé sur le DOM virtuel ou "Shadow DOM"
+]
+
+```html
+<template id="generateur">
+    <style scoped>div {color: blue;}</style>
+    <button id="bouton">Générer le scénario sans shadow dom</button>
+    <div id="resultat">&nbsp;</div>
+</template>
+<script>
+  (function() {
+      var myDoc = document.currentScript.ownerDocument;
+  })();
+</script>
+```
+
+---
+
+.mediumbig[
+* **Flux**: C'est une architecture mise en place par Facebook pour structurer leur code.
+]
+![Logo JS](images/flux.jpg)
+
+---
+
+class: center, middle
+
+# Les outils
+
+---
+
+class: center, middle
+background-image: url(images/background_task.gif)
+
+.bigtitle[
+# Les ordonnanceurs
+]
+
+---
+
+.mediumbig[
+* **Yeoman**: Prototypeur d'application en ligne de commande.
+]
+
+```cli
+npm install -g yo
+yo webapp
+```
+
+.mediumbig[
+* **Grunt**: C'est un outil permettant de créer des tâches automatisées en JavaScript.
+]
+
+```js
+module.exports = function(grunt) {
+  grunt.initConfig({
+    sass: {
+      dist: {
+        options: {
+          style: 'expanded'
+        },
+        files: {
+          'main.css': 'main.scss',
+          'widgets.css': 'widgets.scss'
+        }
+      }
+    }
+  })
+
+  grunt.loadNpmTasks('grunt-contrib-sass')
+  grunt.registerTask('default', ['sass:dist'])
+}
+```
+
+---
+
+class: center, middle
+background-image: url(images/background_transpil.gif)
+
+.bigtitle[
+# Les transpileurs
+]
+
+---
+
+.mediumbig[
+* **Babel**: Transforme du code JS version ES6 ou ES7 en javacript "legacy" ES5.
+]
+
+```js
+var odds = evens.map(v => v + 1);
+var nums = evens.map((v, i) => v + i);
+```
+
+```js
+"use strict";
+
+var odds = evens.map(function (v) {
+    return v + 1;
+});
+var nums = evens.map(function (v, i) {
+    return v + i;
+});
+```
+
+.mediumbig[
+* **Webpack**: Rends compatible des librairies node / npm avec les navigateurs et les package.
+]
+
+---
+
+class: center, middle
+background-image: url(images/background_frameworks.gif)
+
+.bigtitle[
+# Les frameworks
+]
+
+---
+
+.middle[
+# Backend
+]
+
+.mediumbig[
+* **Express**: Le framework historique pour node.
+]
+
+```js
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});
+```
+
+.mediumbig[
+* **Meteor**: Un framework isomorphique.
+* **Mais aussi**: Locomotive, Flatiron, Total, Koa, Diet, Compound, Geddy, Sails, ...
+]
+
+---
+
+.middle[
+# Frontend
+]
+
+.mediumbig[
+* **Angular**: Le framework de Google
+* **React**: Le (pseudo) framework de Facebook. Plutôt un language de template++.
+Proche du web par composant.
+]
+
+```js
+var HelloMessage = React.createClass({
+  render: function () {
+    return <h1>Hello {this.props.message}!</h1>;
+  }
+});
+
+ReactDOM.render(<HelloMessage message="World" />, document.getElementById('root'));
+```
+.mediumbig[
+* **Mais aussi**: Knockout, Amber, Vue.js, Chaplin, ...
+]
+
+---
+
+.mediumbig[
+* **Redux**: Un framework inspiré par Flux
+]
+.middle[
+![Logo JS](images/redux.jpg)
+]
+
+---
+
+.middle[
+# Mobile
+]
+
+.mediumbig[
+* **Phonegap / Cordova**: Le premier framework pour faire des applications mobiles hybrides écrites en Javascript.
+* **Ionic**: Basé sur Angular et Phonegap, il apporte de nombreux composants graphiques "natifs".
+* **React Native**: Portage officiel de React pour le mobile avec de bonnes performances.
+]
+
+---
+
+class: center, middle
+background-image: url(images/background_language.gif)
+
+.bigtitle[
+# Les languages
+]
+
+---
+
+.mediumbig[
+* **Cofeescript**: Inspiré par Python, Ruby et Haskel.
+]
+
+```js
+initialize_time_circuits = (speed, year = 1885) ->
+  year * flux_capacitor_constant * speed
+```
+
+.mediumbig[
+* **Typescript**: Fortement typé, co-créé par Anders Hejlsberg, principal inventeur de C#.
+]
+
+```js
+class MyClass<T> {
+    myVar : T;
+}
+var myClass = new MyClass<string>();
+myClass.myVar = "Hello World";
+```
+
+.mediumbig[
+* **Mais aussi**: Roy, Bizubee, Spider, ....
+]
+
+
+</textarea>
+        <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+        </script>
+        <script>
+            var slideshow = remark.create({
+                ratio: '16:9',
+                // ratio: '4:3',
+                countIncrementalSlides: false,
+                highlightLines: true,
+                highlightStyle: "dark"
+            });
+        </script>
+    </body>
+</html>
